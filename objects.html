@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objcets</title>
+</head>
+<body>
+
+    <script>
+        //an object lets us group different types of variable
+        //inside an object we can put multiple values
+        const product = {
+            name: "shoes",// name is a property-value pair, and we seperate the pairs with a comma,
+            price: "1390",
+            ['newpro-delivery'] : '1 day',
+            //nested object, to make our values more organized
+            rating: { 
+                stars: 4.5,
+                count: 87
+            },
+            //we can also save a function inside an object --> method
+            fun: function function1(){ 
+                console.log("function inside an object");
+            }
+        };
+
+
+
+
+        //built in objects -->
+        //1. JSON
+        //2. localstorage
+        //method --> a function stored inside an object
+        //console is an object and the function inside the object is log
+        console.log(typeof console); //object
+        console.log(typeof console.log);//function
+        console.log(typeof Math.random);//function
+        //JSON --> Javascript Object Notation --> helps us work with JSON
+        //--> all properties and strings must use quotation in JSON, doesn't support single quotes, and doesn't support functions
+        //the syntax is similiar to js object syntax with lesss features
+        //JSON is more universal,
+        //when we send data betweem computers even when they use different programming languages
+        //--> when we store data
+
+
+        //JSON object helps to convert a js object to json
+        //displays this like a JSON format --> a string
+        console.log(JSON.stringify(product));
+        console.log(typeof (JSON.stringify(product))); //string
+
+
+
+        //JSON to js object
+        const jsonString = JSON.stringify(product);
+        console.log(JSON.parse(jsonString));//returns a js object
+
+
+
+        //variables are temporary, when we refresh the page the variables are reset to 0
+        //if the variables are stored in localstrorage, it doesn't do that
+        //localStorage only supports strings
+        //it doesn't get reset when we refresh the page
+        localStorage.setItem('message', 'Hello');
+        console.log(localStorage.getItem('message'));
+        //put this on top of the script, so that we can get the message even when the page is refreshed 
+
+
+
+
+
+        console.log(typeof product);
+        console.log(product);
+        console.log(product.name);//dot notation
+        console.log(product.price);
+        console.log(product.rating.count);
+        product.fun();
+
+
+
+
+        //bracket notation
+        //it also allows us to use certain properties that dot notation doesn't allow otherwise
+        console.log(product['name']); // you have to use '' in order to represent strings
+
+
+        //product[var2]
+        //product['delivery'+'time']
+
+        //console.log(product.newpro-delivery)
+        //here, js thinks - to be a minus sign, it thinks we are wanting to perform calculation
+
+        //but if we use the bracket notation, it will not give us an error
+        console.log(product['newpro-delivery']);
+
+
+        //value associated with the name property is changed now
+        product.name = "running shoes";
+        console.log(product.name);
+
+        //if we want to access a value that's not there it will return undefined
+        console.log(product.brand);
+
+        //this will add the property-value to the object automatically
+        product.newProperty = true;
+        console.log(product);
+
+        //to remove a property 
+        delete product.newProperty;
+        console.log(product);
+
+
+        //auto-boxing --> js has a special feature, it automatically wraps the string in a special object first and this object has the methods and properties
+
+        //objects have properties and methods, others may have them too
+        console.log('hello'.length); //string and a dot notation(property)
+        console.log('hello'.toUpperCase()); //toUpperCase() is a method
+
+        3.0.toString();
+        true.toString();
+
+        //but it doesn't work on null and undefined
+
+        //objects are references
+        const obj1={
+            message: 'hello' //this is a reference to make the language more efficient
+        }
+        const obj2 = obj1;
+        //this doesn't make a copy of obj1, but it makes a copy of the reference that points to the object --> this makes the it faster
+        //this is called copy by reference
+
+
+
+        obj1.message = "Good job";
+        console.log(obj1); // we are able to change the value even though it was declared as const
+        //***const prevents us from changing the reference in the variable but it doesn't prevent us form reaching into the reference and changing the object it is pointing to
+        console.log(obj2);// here the obj2's message property is changed as well as it was copy by reference
+
+
+    </script>
+    
+</body>
+</html>

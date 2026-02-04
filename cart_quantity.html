@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable</title>
+</head>
+<body>
+    <!--here the cart has a maximum capacity of 10 items-->
+    <!--so we will check before updating if the quantity is less than 10 or not-->
+    <!--and we will also make sure -->
+    <button onclick="
+    console.log(`Cart Quantity: ${cartQuantity}`);">
+    Show Quantity
+    </button>
+
+    <button onclick="AddtoCart(1)">Add to Cart
+    </button>
+
+    <button onclick="AddtoCart(2)">+2
+    </button>
+
+    <button onclick="AddtoCart(3)">+3
+    </button> 
+
+    <button onclick="AddtoCart(4)">+4
+    </button> 
+
+    <button onclick="AddtoCart(5)">+5
+    </button> 
+
+    <button onclick="RemovefromCart(1)">Remove from Cart
+    </button>
+
+    <button onclick="RemovefromCart(2)">-2
+    </button> 
+
+    <button onclick="RemovefromCart(3)">-3
+    </button> 
+ 
+
+    <button onclick="
+    cartQuantity=0;
+    console.log(`Cart has been reset`); 
+    console.log(`Cart Quantity: ${cartQuantity}`);">Reset Cart
+    </button>
+
+
+
+    <script>
+        //use const by default
+        //and use let only when you know the value will change
+        let cartQuantity=0;
+
+        function AddtoCart(number)
+        {
+            if(cartQuantity<10 && (cartQuantity+number)<=10)
+            {
+                cartQuantity+=number;
+            }
+            else
+            {
+                console.log("Cart Quantity remains same!");
+            }
+            console.log(`Cart Quantity: ${cartQuantity}`);
+        }
+
+        function RemovefromCart(number)
+        {
+            if(cartQuantity>0 && (cartQuantity-number)>=0)
+            {
+                cartQuantity-=number;
+            }
+            else
+            {
+                console.log("Couldn't remove item!");
+            }
+            console.log(`Cart Quantity: ${cartQuantity}`);
+        }
+    </script>
+
+    
+</body>
+</html>

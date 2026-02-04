@@ -1,0 +1,8 @@
+.hello{
+    background-color: crimson;
+    border-radius:25%;
+    padding: 3rem;
+    color: white;
+    font-size: 6rem;  
+    font-family:cursive;
+};

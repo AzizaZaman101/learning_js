@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable</title>
+</head>
+<body>
+    <!--here we are making sure that we are updating the cartQuantity every time we click on a button-->
+    <!--here we delclared the variable within the script tag-->
+    <!--now we can access it from anywhere in the html body tag-->
+    <button onclick="
+    console.log(`Cart Quantity: ${cartQuantity}`);">
+    Show Quantity
+    </button>
+
+    <button onclick="
+    cartQuantity+=1;
+    console.log(`Cart Quantity: ${cartQuantity}`);">Add to Cart
+    </button>
+
+    <button onclick="
+    cartQuantity+=2;
+    console.log(`Cart Quantity: ${cartQuantity}`);">+2
+    </button>
+
+    <button onclick="
+    cartQuantity+=3;
+    console.log(`Cart Quantity: ${cartQuantity}`);">+3
+    </button> 
+
+    <button onclick="
+    cartQuantity+=4;
+    console.log(`Cart Quantity: ${cartQuantity}`);">+4
+    </button> 
+
+    <button onclick="
+    cartQuantity+=5;
+    console.log(`Cart Quantity: ${cartQuantity}`);">+5
+    </button> 
+
+    <button onclick="
+    cartQuantity-=2;
+    console.log(`Cart Quantity: ${cartQuantity}`);">-2
+    </button> 
+
+    <button onclick="
+    cartQuantity-=3;
+    console.log(`Cart Quantity: ${cartQuantity}`);">-3
+    </button> 
+
+    <button onclick="
+    cartQuantity-=1;
+    console.log(`Cart Quantity: ${cartQuantity}`);">Remove from Cart
+    </button> 
+
+    <button onclick="
+    cartQuantity=0;
+    console.log(`Cart has been reset`); 
+    console.log(`Cart Quantity: ${cartQuantity}`);">Reset Cart
+    </button>
+
+
+
+    <script>
+        //use const by default
+        //and use let only when you know the value will change
+        //var cart=1; --> old way of declaring variables
+        let cartQuantity=0;
+    </script>
+
+    <!--this is the practice part-->
+    <script>
+        const name="Aziza";
+        console.log(`My name is: ${name}`);
+
+        const coffee=5;
+        const bagels=3;
+        const soup =9;
+        let total=coffee+2*bagels+soup;
+        console.log(`Cost of Food: ${total}`);
+
+        const tax=total*0.1;
+        console.log(`Tax(10%): ${tax}`);
+        total+=tax;
+        console.log(`Total Cost: ${total}`);
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+
+        //we use null when we intentionally want something to be empty
+
+        //Ternary operator example ?:
+        const result = 0? 'truthy' : 'falsy';
+        console.log(result); // Outputs: falsy
+        //here the condition is 0, which is considered falsy, so the result is 'falsy'
+        //it works as an if-else statement
+        //if 0, then 'truthy', else 'falsy
+        
+        
+
+        false && console.log("This won't be logged");
+        true || console.log("This won't be logged either");
+
+
+        //Guard operator examples &&
+        const message = false && 'hello';
+        console.log(message); // Outputs: false
+        //here the guard operator stops early as the first operand is false and the second operand is not evaluated
+        //so the result saved int the message variable is false
+
+
+
+        const anotherMessage = true && 'world';
+        console.log(anotherMessage); // Outputs: world
+        //here the guard operator evaluates the second operand as the first operand is true
+        //so the result saved in the anotherMessage variable is 'world'
+
+
+
+
+        //Default operator examples ||
+        const currency = 'EUR' || 'USD';
+        console.log(currency); // Outputs: EUR
+        //here the default operator stops early as the first operand is truthy and the second operand is not evaluated
+        //so the result saved in the currency variable is 'EUR'
+
+
+        const currency2 = undefined || 'USD';
+        console.log(currency2); // Outputs: USD
+        //here the default operator evaluates the second operand as the first operand is falsy
+        //so the result saved in the currency2 variable is 'USD'
+
+
+
+    </script>
+</body>
+</html>

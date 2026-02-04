@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greet User Based on Hour</title>
+</head>
+<body>
+    <button onclick="generateHour()">Generate Hour</button>
+
+    <script>
+
+        const name = "Aziza";
+
+        function generateHour() {
+            let hour = Math.random() * 24; // Random hour between 0 and 23
+
+            if(hour > 6 && hour <= 12) 
+            {
+                console.log(`Good morning ${name}`);
+            } 
+            else if (hour >= 13 && hour < 17) 
+            {
+                console.log(`Good afternoon ${name}`);
+            } 
+            else 
+            {
+                console.log(`Good night ${name}!`);
+            }
+        }
+        
+        hour="hello there";
+        console.log(`${hour}!`);
+
+    </script>
+</body>
+</html>

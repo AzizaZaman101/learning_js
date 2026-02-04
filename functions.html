@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+<body>
+
+    <script>
+        //function with dedault parameter, if no value is passed for taxPercentage, it will take 10 as default
+        function taxMoney(amount, taxPercentage = 10)
+        {
+            console.log(taxPercentage);
+            console.log(amount*taxPercentage/100);
+        }
+
+        taxMoney(1000,5); //5% tax on 1000
+
+
+        //function taxMoney(amount, taxPercentage)
+        //taxMoney(2000); //this will print NaN because the taxPercentage is undefined in this case
+    </script>
+
+
+    <!--practice questions-->
+    <script>
+        function greet(name)
+        {
+            if (name===undefined)//if(!name)
+            {
+                console.log("Hi, there!");
+            }
+            else
+            {
+                console.log(`Hello, ${name}`);
+            }
+        }
+
+        greet("Alice");
+        greet();
+
+
+        function convertToFarenheit(celcius)
+        {
+            const farenheit= (celcius*9/5)+32;
+            return farenheit;
+        }
+
+        function convertToCelcius(farenheit)
+        {
+            const celcius= (farenheit-32)*5/9;
+            return celcius;
+        }
+
+        function convertToTemperature(degrees, unit)
+        {
+            //if 'C'is given as a unit, it will get converted to farenheit
+            //or if 'F' is given as a unit, it will get converted to celcius
+
+            if(unit==='C'|| unit==='c')
+            {
+                const far = convertToFarenheit(degrees);
+                console.log(`${far}F`);
+            }
+            else if(unit==='F'|| unit==='f')
+            {
+                const cel = convertToCelcius(degrees);
+                console.log(`${cel}C`);
+            }
+            else
+            {
+                console.log("Invalid input!");
+            }
+        }
+
+        const result=convertToFarenheit(67);
+        console.log(`Farenheit is: ${result}`);
+        convertToTemperature(56,'F');
+
+        //do km, mile, feet conversion
+        //1 mile = 1.6km
+        //1 mile = 5280 feet
+        //1 km = 3281 feet
+        //function convertLength(length, from, to)
+    </script>
+    
+</body>
+</html>

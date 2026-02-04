@@ -7,17 +7,23 @@
 </head>
 <body>
     <button onclick="
+    localStorage.getItem('calculation');
     calculation+='1';
+    localStorage.setItem('calculation', calculation);
     console.log(`${calculation}`);">1
     </button> 
 
     <button onclick="
+    localStorage.getItem('calculation');
     calculation+='2';
+    localStorage.setItem('calculation', calculation);
     console.log(`${calculation}`);">2
     </button> 
 
     <button onclick="
+    localStorage.getItem('calculation');
     calculation+='3';
+    localStorage.setItem('calculation', calculation);
     console.log(`${calculation}`);">3
     </button> 
 
@@ -27,13 +33,22 @@
     </button> 
 
     <!-- here by writing eval(calculation) we are converting the string expression into a mathematical operation-->
-    <button onclick="
-    console.log(`Result: ${eval(calculation)}`);">=
+    <button onclick= "
+    //here we are getting the previous value
+    localStorage.getItem('calculation');
+
+    //we are storing the calculated value in a string, because localStorage only works on strings
+    calculation = eval(calculation).toString();
+    //then we are setting the value in the localStorage
+    localStorage.setItem('calculation', calculation);
+    //we are then printing the int version of the string
+    console.log(`Result: ${eval(calculation)}`);
+    "> =
     </button> 
 
 
     <script>
-        let calculation = '';
+        let calculation = localStorage.getItem('calculation') || '';
     </script>
 </body>
 </html>

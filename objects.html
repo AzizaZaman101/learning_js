@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Objcets</title>
+    <title>Objects</title>
 </head>
 <body>
 
@@ -135,6 +135,54 @@
         console.log(obj1); // we are able to change the value even though it was declared as const
         //***const prevents us from changing the reference in the variable but it doesn't prevent us form reaching into the reference and changing the object it is pointing to
         console.log(obj2);// here the obj2's message property is changed as well as it was copy by reference
+
+
+        //we can't compare objects directly
+        const obj3 = {
+            message : "Good job"
+        }
+
+        console.log(obj3===obj1); //false even though they have the same things inside, it's comparing the refernces - not the values
+
+        console.log(obj1===obj2); //true because they have the same reference in the computer
+        
+        //so to compare, we have to do it manually
+        console.log(obj1.message===obj3.message); //true
+
+
+        const obj4 = {
+            message : "Good job",
+            price : 76
+        }
+
+        //destructuring
+        //it will take the message, price out of the object and save it in variables called message, price
+        //const message = obj4.message;
+        const {message,price} =obj4;
+        console.log(message); //Good job
+        console.log(price); //76
+
+        console.log(obj4); //will display the obj
+
+
+        //shorthand property & shorthand method
+
+        const obj5 = {
+            //message : message
+            message, // if the property and the variable name is the same, then we can only write it once
+
+            // method : function func1(){
+            //     console.log('method');
+            // }
+
+            method(){ // here (){} will create a function automatically, function name is not needed
+                console.log('method');
+            }
+        }
+
+        console.log(obj5); //{message: 'Good job'}
+        //the properties name is message and it stores whatever is in the message variable
+        obj5.method();
 
 
     </script>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects Practice Problems</title>
+</head>
+<body>
+
+    <script>
+        const product = {
+            name: "Basketball",
+            price : 2095, 
+        }
+
+        console.log(product);
+        //increasing the price of the product using dot notation
+        product.price+=50;
+        console.log(product.price);
+
+        product["delivery-time"] = '3 days'; //made the mistake of not writing the property name with quotations
+        console.log(product);
+
+        const product2 = {
+            name: "Cricket Bat",
+            price : 3000, 
+        }
+
+        //returns less expensive product details
+        function comparePrice(product, product2)
+        {
+            if(product.price<product2.price)
+            {
+                return product;
+            }
+            else
+            {
+                return product2;
+            }
+        }
+
+        console.log(comparePrice(product, product2));
+
+
+        //to check if both the products are the same
+        function isSameProduct(product, product2)
+        {
+            if(product.name===product2.name && product.price===product2.price)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        console.log(isSameProduct(product, product2));
+
+        //to make the string lowercase
+        let message = "Good Morning";
+        console.log(message.toLowerCase());
+
+
+        //to repeat a string n times
+        let message2 = "test";
+        const repeatitions = 2;
+
+        console.log(message2.repeat(repeatitions)); //using repeat function 
+        //it will print testtest
+
+        </script>
+    
+</body>
+</html>

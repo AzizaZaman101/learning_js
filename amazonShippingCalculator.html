@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Shipping Calculator</title>
+</head>
+<body>
+    
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping.</p>
+
+    <input type="number" placeholder="Cost of Order" class="js-input">
+    <button class="js-calculate-btn" onclick="calculateShipping()">Calculate</button>
+    <p class="js-shipping-charge"></p>
+
+
+    <script>
+        function calculateShipping()
+        {
+            const inputElement = document.querySelector('.js-input');
+            //it is a string, so we have to convert it in a Number to make sure it doesn't concatenate a string, but rather calculates the numbers
+            let cost = Number(inputElement.value);
+
+            if(cost<40)
+            {
+                cost=cost+10;//it is a string
+            }
+
+            document.querySelector('.js-shipping-charge')
+                    .innerHTML = `$${cost}`;
+
+
+        }
+    </script>
+
+</body>
+</html>

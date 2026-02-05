@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Javascript</title>
+</head>
+<body>
+    <button>hello</button>
+
+    <!--we made an attribute to access it using document
+    common practice is to start the class name with 'js'-->
+    <button class="js-button">Second Button</button>
+
+
+
+
+
+
+    <!--dom is another built in object-->
+    <script>
+
+        //it will remove everything from the webpage and show this
+        //document is a built in object --> the document object is linked to the webpage, represents/models the webpage
+        //body is also an object
+        //innerHTML is a property, when we change this, it changes the webpage
+        //the DOM combines Js and HTML together, and it gives js the control of the webpage
+
+        //document.body.innerHTML = 'Hello';
+        //if we go to the elements part, it shows the HTML and CSS, we will see in the body tag only 'Hello'
+
+
+
+        //document.title = 'Good Job';//will change the title of the webpage
+
+        /*
+
+        //we can use it to get the title
+        console.log(document.title); //DOM Javascript
+        document.title = 'changed';//here we are changing the title
+
+
+        //it will get the <body> element and put this inside the document
+        console.log(document.body);
+
+        console.log(typeof document.body);//HTML becomes an object of js
+        console.log(typeof document.body.innerHTML); //it gives all the HTML inside the body element //it shows a string
+
+
+        //we can also use HTML code inside the innerHTML as such
+        document.body.innerHTML = '<button> Good morning! </button>';
+
+        */
+
+
+        //document object also has methods
+        //a method is a function saved inside an object
+        //document.querySelector() --> lets us get any element from the page and put it inside JS
+
+        console.log(document.querySelector("button").innerHTML);
+        //this will get the first button from the body element
+        //it becomes an object, which has properties
+        //it will show the inside of the button
+
+
+        document.querySelector("button")
+            .innerHTML = 'What do you mean?';
+        //it will change the innerHTML of the first button
+        //just breaking it up into lines, and it makes it readable
+
+        //console.log(document.querySelector("body"));
+        //it will do the same thing as document.body
+        
+
+        //here we are using dot notation to select the specific class attribute value we want to work with
+        //it will select the second button
+        //console.log(document.querySelector('.js-button'));
+        //anything of css can also be used in this ''
+
+        //an object is a variable, that can be stored inside a variable
+        const buttonElement = document.querySelector('.js-button');
+        console.log(buttonElement);
+
+
+
+    </script>
+
+</body>
+</html>

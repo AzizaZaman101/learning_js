@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Subscribe Button</title>
+</head>
+<body>
+    <!--The idea is when we click the button, if the text reads 'Subscribe' -- make it 'Subscribed'
+    else change it back to 'Subscribe'-->
+
+
+    <p>YouTube Subscribe Button</p>
+
+
+    <button class="js-subscribe-btn" onclick="subscribe();">Subscribe</button>
+    <!--make sure to put a ; after the js code-->
+    <!--make sure the button doesn't have any spacing before or after, if it does then it will show up on innerHTML-->
+    <!--but if you use innerText, it's not going to matter-->
+
+
+    <script>
+
+        //to make the code cleaner, we have put this in a function
+        function subscribe(){
+            const buttonElement = document.querySelector('.js-subscribe-btn');
+
+            //if (buttonElement.innerHTML === 'Subscribe')
+            if (buttonElement.innerText === 'Subscribe')
+            {
+                buttonElement.innerHTML = 'Subscribed';
+            }
+            else
+            {
+                buttonElement.innerHTML = 'Subscribe';
+            }
+        }
+    </script>
+    
+</body>
+</html>

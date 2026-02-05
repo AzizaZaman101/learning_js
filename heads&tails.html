@@ -16,10 +16,35 @@
     </button> 
 
         <script>
+            //I was getting an error like this - You guessed Heads. Computer picked Heads. Wins: undefined, Loses: undefined
+            //It is because previously I was working with the rock-paper-scissors game, and storing the object 'score' there
+            //as here is no 'tie' atrribute, it identifies as undefined
+            //so all it was doing was undefined+1
+            //so I am changing the variable name here
+
+             const CoinScore = JSON.parse(localStorage.getItem('CoinScore')) || {
+                    wins : 0,
+                    loses : 0
+                };
+
+            //this is cleaner
+            // const coinScore = {
+            //     wins: stored?.wins ?? 0,
+            //     loses: stored?.loses ?? 0
+            // };
+
+            //whenever we change object structure, we have to do this 
+            //localStorage.removeItem('coinScore');
+
+
+
 
             function playGame(guess) {
                 //here to create a random number for the computer's choice
                 let randomNumber = Math.random();
+
+                //JSON.parse(localStorage.getItem('score'))
+               
 
                  //can't use const here, because we will change the value later, as we want to access this variable outside the scope of the if statement
                 let computerMove = '';
@@ -32,10 +57,24 @@
                     computerMove = 'Tails';
                 }
 
-                let result = (guess === computerMove) ? 'You guessed it right!' : 'You are wrong!';
+                if(guess === computerMove)
+                {
+                    console.log('You guessed it right!');
+                    CoinScore.wins+=1;
+                }
+                else
+                {
+                    console.log('You are wrong!');
+                    CoinScore.loses+=1;
+                }
+                
+                localStorage.setItem('CoinScore', JSON.stringify(CoinScore));
+
+                //let result = (guess === computerMove) ? 'You guessed it right!' : 'You are wrong!';
 
 
-                console.log(`You guessed ${guess}. Computer picked ${computerMove}. ${result}`);
+                alert(`You guessed ${guess}. Computer picked ${computerMove}. Wins: ${CoinScore.wins}, Loses: ${CoinScore.loses}`);
+                
             }
         </script>
 </body>

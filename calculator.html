@@ -6,6 +6,8 @@
     <title>Calculator</title>
 </head>
 <body>
+    <p class="js-show-calculation"></p>
+
     <button onclick="
     localStorage.getItem('calculation');
     calculation+='1';
@@ -43,12 +45,23 @@
     localStorage.setItem('calculation', calculation);
     //we are then printing the int version of the string
     console.log(`Result: ${eval(calculation)}`);
+    showCalculation();
     "> =
     </button> 
+
+    
 
 
     <script>
         let calculation = localStorage.getItem('calculation') || '';
+
+        function showCalculation()
+        {
+            document.querySelector('.js-show-calculation')
+                .innerHTML = `${calculation}`;
+        }
     </script>
-</body>
+
+
+    </body>
 </html>

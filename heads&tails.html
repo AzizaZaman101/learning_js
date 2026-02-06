@@ -9,11 +9,18 @@
 
     <p>Heads & Tails</p>
 
-    <button onclick="playGame('Heads')"> Heads
+    <button onclick=" ;
+    youChose('Heads');
+    playGame('Heads');
+    "> Heads
     </button> 
 
-    <button onclick="playGame('Tails')"> Tails
+    <button onclick="
+    youChose('Tails');
+    playGame('Tails');"> Tails
     </button> 
+
+    <p class="js-you-chose"></p>
 
         <script>
             //I was getting an error like this - You guessed Heads. Computer picked Heads. Wins: undefined, Loses: undefined
@@ -36,7 +43,11 @@
             //whenever we change object structure, we have to do this 
             //localStorage.removeItem('coinScore');
 
-
+            function youChose(guess)
+            {
+                document.querySelector('.js-you-chose')
+                .innerHTML = `You chose: ${guess}`;
+            }
 
 
             function playGame(guess) {
@@ -73,7 +84,7 @@
                 //let result = (guess === computerMove) ? 'You guessed it right!' : 'You are wrong!';
 
 
-                alert(`You guessed ${guess}. Computer picked ${computerMove}. Wins: ${CoinScore.wins}, Loses: ${CoinScore.loses}`);
+                console.log(`You guessed ${guess}. Computer picked ${computerMove}. Wins: ${CoinScore.wins}, Loses: ${CoinScore.loses}`);
                 
             }
         </script>

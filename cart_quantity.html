@@ -10,40 +10,61 @@
     <!--so we will check before updating if the quantity is less than 10 or not-->
     <!--and we will also make sure -->
     <button onclick="
+    showQuantity();
     console.log(`Cart Quantity: ${cartQuantity}`);">
     Show Quantity
     </button>
 
-    <button onclick="AddtoCart(1)">Add to Cart
+    <button onclick="
+    //the mistake I made was to put showQuantity() before AddtoCart(), what happened was the console was giving the right result but the webpage was behind, after refreshing, it was giving the result
+    AddtoCart(1);
+    showQuantity();">Add to Cart
     </button>
 
-    <button onclick="AddtoCart(2)">+2
+    <button onclick="
+    AddtoCart(2);
+    showQuantity();">+2
     </button>
 
-    <button onclick="AddtoCart(3)">+3
+    <button onclick="
+    AddtoCart(3);
+    showQuantity();">+3
     </button> 
 
-    <button onclick="AddtoCart(4)">+4
+    <button onclick="
+    AddtoCart(4);
+    showQuantity();">+4
     </button> 
 
-    <button onclick="AddtoCart(5)">+5
+    <button onclick="
+    AddtoCart(5);
+    showQuantity();">+5
     </button> 
 
-    <button onclick="RemovefromCart(1)">Remove from Cart
+    <button onclick="
+    RemovefromCart(1);
+    showQuantity();">Remove from Cart
     </button>
 
-    <button onclick="RemovefromCart(2)">-2
+    <button onclick="
+    RemovefromCart(2);
+    showQuantity();">-2
     </button> 
 
-    <button onclick="RemovefromCart(3)">-3
+    <button onclick="
+    RemovefromCart(3);
+    showQuantity();">-3
     </button> 
  
 
     <button onclick="
     cartQuantity=0;
+    showQuantity();
     console.log(`Cart has been reset`); 
     console.log(`Cart Quantity: ${cartQuantity}`);">Reset Cart
     </button>
+
+    <p class="js-show-qty"></p>
 
 
 
@@ -76,6 +97,12 @@
                 console.log("Couldn't remove item!");
             }
             console.log(`Cart Quantity: ${cartQuantity}`);
+        }
+
+        function showQuantity()
+        {
+            document.querySelector('.js-show-qty')
+                .innerHTML = `Cart Quantity: ${cartQuantity}`;
         }
     </script>
 

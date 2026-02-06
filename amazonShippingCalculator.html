@@ -11,27 +11,65 @@
     <p>Orders under $40 = +$10 shipping.</p>
     <p>Orders over $40 = FREE shipping.</p>
 
-    <input type="number" placeholder="Cost of Order" class="js-input">
-    <button class="js-calculate-btn" onclick="calculateShipping()">Calculate</button>
+    <input type="number" placeholder="Cost of Order" class="js-input" onkeydown="handleCostKeyDown(event);">
+    
+
+    <button class="js-calculate-btn" onclick="calculateShipping();">Calculate</button>
+    
     <p class="js-shipping-charge"></p>
 
 
     <script>
+
+        //String(90) // it will make a number into a string
+
+        console.log('25' - 5);
+        //If a string only contains a number, and we perform any calculations -*/ , js will automatically convert the string into a number --> automatic coersion -- not recommended
+        //it will show 20
+
+        console.log('25' + 5);
+        //but adding works differently, as this will convert the number into a string, and concatenate the strings and show 255 instead
+
+        function handleCostKeyDown(event)
+        {
+            //console.log(event.key);//we only need to know what key is pressed
+
+            if(event.key === 'Enter')
+            {
+                calculateShipping();//if we press enter do as the calculate button does
+            }
+        }
+
+            //console.log(event);//it will give every information about the key even the key that we type
+
+            //as we want to detect if the 'enter key is pressed, then do certain thing'
+            //every event listener including onclick gets an event object
+
+
+            // onkeydown="" is an HTML thing we can use to represent if a key is pressed down, what will it showcase
+            // whenever we try to write in the input field, it will show 'typing' in the console
+
+            // clicks, keydowns are events
+            // onclick, onkeydown are event listeners
+
+            // onclick, onkeydown, onscroll, onmouseenter (hovering over), onmouseleave(stop hovering over)
+        
+
         function calculateShipping()
         {
             const inputElement = document.querySelector('.js-input');
             //it is a string, so we have to convert it in a Number to make sure it doesn't concatenate a string, but rather calculates the numbers
-            let cost = Number(inputElement.value);
+            let cost = Number(inputElement.value)*100;
+            //converting to cents to ensure that it doesn't break
 
-            if(cost<40)
+            if(cost<(40*100))
             {
-                cost=cost+10;//it is a string
+                cost=cost+(10*100);//it is a string
+                cost= Math.round(cost)/100;
             }
 
             document.querySelector('.js-shipping-charge')
                     .innerHTML = `$${cost}`;
-
-
         }
     </script>
 

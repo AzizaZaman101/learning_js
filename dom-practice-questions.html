@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice Questions</title>
+</head>
+<body>
+
+    <button class="9a_button" onclick="
+        console.log(document.querySelector('button'));//here I couldn't do document.querySelector('.9a_button') -->because the selector can't start with a number
+        ">9a</button>
+
+
+    <button class="9b_button" onclick="
+        console.log(document.querySelector('.\\39 b_button'));
+        //here I had to use escape characters --> to represent 9, I had to use \39
+        //and to pass a \ in js, we have to back it up with another \
+        //another thing to notice is that, we have to put a space after using the escape characters
+        ">9b done!</button>
+
+        <br>
+        <br>
+
+
+        <!--when you enter your name in the text box and press enter or the submit btn, it should display on the webpage "Your name is: ---"-->
+
+        <input type="text" class="js-take-input" onkeydown="takeInput(event);" placeholder="Enter your name here">
+
+        <button class="js-take-input-btn" onclick="
+            showInput();
+        ">Submit</button>
+
+        <p class="js-show-input"></p>
+
+        <!--it will write in the paragraph whenever a key is pressed up-->
+        <input type="text" class="js-write-box" placeholder="Type Something" onkeyup="
+        writeWhateverWritten();">
+
+        <p class="js-written"></p>
+
+    <script>
+
+        function takeInput(event)
+        {
+            if(event.key == 'Enter')
+            {
+                showInput();
+            }
+        }
+
+        function showInput()
+        {
+            const inputElement = document.querySelector('.js-take-input');
+            const textName = String(inputElement.value);//it makes the input into a string
+
+            document.querySelector('.js-show-input')
+                .innerHTML= `Your name is: ${textName}`;
+
+            //console.log(textName);
+            //console.log(Number(inputElement.value)); //it represents the number
+        }
+
+        function writeWhateverWritten()
+        {
+             const inputElement = document.querySelector('.js-write-box');
+
+             document.querySelector('.js-written')
+             .innerHTML = (inputElement.value);
+        }
+
+    </script>
+
+
+</body>
+</html>

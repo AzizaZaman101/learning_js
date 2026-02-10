@@ -10,10 +10,85 @@
     <button>Add</button>
 
     <script>
-        //we use let inorder to make it esaier
-        let constant = [
-            'strings','what'
-        ]
+        //with this tsyntax of function we can do this -->
+        //easier to read
+        //hoisting --> we can call this function, we can call this function before we make the function
+        function greeting()
+        {
+            console.log("hello");
+        }
+
+        greeting();
+
+        //functions are also values
+
+        const num =2;
+
+        //as a function is also a variable, that's why we can also store the function inside a variable, but keep in mind, we have to put a semicolon afterwards
+        //const function1 = function greeting()
+        const function1 = function () //function without a name --> anonymus function, we are not required to put up a name for the function declared inside a variable
+        {
+            console.log("hello2");
+        };
+        console.log(function1);
+        console.log(typeof function1); //typeof this variable is a function
+
+        function1(); //this will run the code inside the function 
+
+        const objects = {
+            num: 2, 
+            //fun: function greeting ()
+            fun: function () //we are making an anonymus function
+            {
+                console.log("gello");
+            }
+        };
+        objects.fun();
+
+
+        function display(param)
+        {
+            console.log(param);
+        }
+        display(2);
+
+        //we can pass a function in another function 
+        function run(param)
+        {
+            param();
+        }
+
+        run(function()// this is a callback function --> anything we can do with a value, we can also do with a function
+        {
+           console.log('hello4');
+        })
+
+
+
+        //asynchronus code --> because it will set the timer and head on to the next line to execute
+        //setTimeout() allows us to use a function in future -->this is a built in function
+        // it doesn't block the code for that particular time
+        //the concept of setting up a timer on the phone
+        setTimeout(function() 
+            {
+                console.log("time out");
+                //synchronus code --> executed line after line
+                console.log("time out 2");
+            }, 3000); //3000ms = 3s, this will ensure after 3s the function gets executed
+
+
+
+
+        //asynchronus
+        setInterval(function()
+            {
+                console.log('interval');
+                
+            }, 10000
+        ); //after every 10s this will run the code
+
+        //asynchronus code
+        console.log('next line');// this will get displayed before the tiemout function, this is synchronus code
     </script>
 </body>
 </html>

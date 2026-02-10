@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons</title>
+    <link rel="stylesheet" href="../css files/buttons.css">
+</head>
+<body>
+    <button class="add-to-cart">Add to Cart</button>
+
+    <br>
+
+    <button class="js-btn">Test</button>
+    <button class="request-now-btn">Request Now</button>
+
+    <button class="schedule-for-later-btn">Schedule for Later</button>
+
+    <br>
+    <br>
+
+    <!--This is to identify when the button is on/off-->
+  
+    <button class="gaming-btn off" onclick="ifClicked(this);">Gaming</button>
+    <button class="gaming-btn off" onclick="ifClicked(this);">Music</button>
+    <button class="gaming-btn off" onclick="ifClicked(this);">Tech</button>
+</body>
+
+<script>
+    //to check if there is the class js-btn in the button
+    const buttonAdd = document.querySelector('.js-btn').classList.contains('js-btn');
+    console.log(buttonAdd);
+
+
+    //what happened here was i was trying to access the buttonElement using a big thing, but the result the buttonElement was giving was true/false
+    //so when i tried to access buttonElement.classList.remove('off');
+    //it was simply doing true.classList.remove('off') --> that's why it was throwing an error
+
+    // and I had to use 'this' in the html button function call as when i was calling the gaming-btn, it would only work for the first button
+    function ifClicked(buttonElement){
+    
+        if(buttonElement.classList.contains('off'))
+        {
+            buttonElement.classList.remove('off');
+            buttonElement.classList.add('on');
+        }
+        else
+        {
+            buttonElement.classList.remove('on');
+            buttonElement.classList.add('off');
+        } 
+    }
+
+    
+
+    
+</script>
+</html>

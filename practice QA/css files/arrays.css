@@ -1,0 +1,25 @@
+.delete_todo
+{
+    padding: 0.3rem;
+    background-color: crimson;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.add-btn
+{
+    padding: 0.3rem;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.todo-grid
+{
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 175px 120px 50px;
+    gap: 1rem;
+}

@@ -44,7 +44,7 @@
     //then we are setting the value in the localStorage
     localStorage.setItem('calculation', calculation);
     //we are then printing the int version of the string
-    console.log(`Result: ${eval(calculation)}`);
+    console.log(`Result: ${eval(calculation)}`); //using eval is highly discouraged due to major security vulnerabilities
     showCalculation();
     "> =
     </button> 

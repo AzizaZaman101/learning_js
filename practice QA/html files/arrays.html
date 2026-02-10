@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+    <link rel="stylesheet" href="../css files/arrays.css">
+</head>
+<body>
+    <p>Todo List Practice 1</p>
+    <input type="text" placeholder="Todo name" class="add_1_box" onkeydown="getInput_Enter(event);">
+    <button class="add_1" onclick="add_todo1();">Add</button>
+
+    <br>
+    <br>
+    <br>
+
+    <p>Todo List Practice 2</p>
+    <input type="text" placeholder="Todo name" class="add_2_box" onkeydown="
+    if(event.key === 'Enter')
+    {
+        add_todo2();
+    }">
+    <button class="add_2" onclick="add_todo2();">Add</button>
+    <div class="js-todo-list"></div>
+
+    <br>
+    <br>
+    <br>
+
+    <p>Todo List</p>
+    <input type="text" placeholder="Todo name" class="add_3_box" onkeydown="
+    if(event.key === 'Enter')
+    {
+        add_todo3();
+    }">
+    <input type="date" class="due_date">
+    <button class = "add-btn" onclick="add_todo3();">Add</button>
+    <div class="js-add-delete-todo todo-grid"></div>
+
+
+    <script src="../js files/arrays.js"></script>
+</body>
+</html>

@@ -4,6 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amazon Shipping Calculator</title>
+    <style>
+        body
+        {
+            font-family: Arial;
+            font-size: 15px;
+        }
+        .cost-input
+        {
+            padding : 10px;
+        }
+        .js-calculate-btn
+        {
+            background-color: green;
+            cursor: pointer;
+            color:white;
+            border: none;
+        }
+
+    </style>
 </head>
 <body>
     
@@ -11,10 +30,10 @@
     <p>Orders under $40 = +$10 shipping.</p>
     <p>Orders over $40 = FREE shipping.</p>
 
-    <input type="number" placeholder="Cost of Order" class="js-input" onkeydown="handleCostKeyDown(event);">
+    <input type="number" placeholder="Cost of Order" class="js-input cost-input" onkeydown="handleCostKeyDown(event);">
     
 
-    <button class="js-calculate-btn" onclick="calculateShipping();">Calculate</button>
+    <button class="js-calculate-btn cost-input" onclick="calculateShipping();">Calculate</button>
     
     <p class="js-shipping-charge"></p>
 
@@ -62,14 +81,26 @@
             let cost = Number(inputElement.value)*100;
             //converting to cents to ensure that it doesn't break
 
-            if(cost<(40*100))
+
+
+            if(cost>0 && cost<(40*100))
             {
                 cost=cost+(10*100);//it is a string
                 cost= Math.round(cost)/100;
-            }
-
-            document.querySelector('.js-shipping-charge')
+                document.querySelector('.js-shipping-charge')
                     .innerHTML = `$${cost}`;
+            }
+            else if(cost>=(40*100))
+            {
+                cost=Math.round(cost)/100;
+                document.querySelector('.js-shipping-charge')
+                    .innerHTML = `$${cost}`;
+            }
+            else
+            {
+                document.querySelector('.js-shipping-charge')
+                    .innerHTML = `Please enter values more than 0 dollars`;
+            }
         }
     </script>
 

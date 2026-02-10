@@ -4,6 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Youtube Subscribe Button</title>
+    <style>
+        body
+        {
+            font-family:Arial; 
+        }
+
+        .js-subscribe-btn
+        {
+            background-color: black;
+            padding: 10px;
+            border : none;
+            border-radius: 50px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .is-subscribed
+        {
+            background-color: rgb(240, 240, 240);
+            color: black;
+        }
+
+    </style>
 </head>
 <body>
     <!--The idea is when we click the button, if the text reads 'Subscribe' -- make it 'Subscribed'
@@ -24,15 +48,21 @@
         //to make the code cleaner, we have put this in a function
         function subscribe(){
             const buttonElement = document.querySelector('.js-subscribe-btn');
+            //typing a dot only makes sense in a query selector, not while typing classList
 
             //if (buttonElement.innerHTML === 'Subscribe')
+            //.classList --> gives us the control of the class attribute--> it is an object
             if (buttonElement.innerText === 'Subscribe')
             {
                 buttonElement.innerHTML = 'Subscribed';
+                buttonElement.classList.add('is-subscribed');
+                //whenever we click the button, the 'is-subscribed' class is added 
             }
             else
             {
                 buttonElement.innerHTML = 'Subscribe';
+                buttonElement.classList.remove('is-subscribed');
+                //we want to remove this class if it is unsubscribed
             }
         }
     </script>

@@ -82,13 +82,40 @@
         //asynchronus
         setInterval(function()
             {
-                console.log('interval');
+                //console.log('interval');
                 
             }, 10000
         ); //after every 10s this will run the code
 
         //asynchronus code
         console.log('next line');// this will get displayed before the tiemout function, this is synchronus code
+
+
+
+        //to loop through an array --> forEach loop is the preferred way to do this
+
+        //it doesn't matter if you name the array or not
+        [
+            'wash dishes',
+            'make dinner',
+            'learn js'
+        ].forEach(function(value, index) //it will loop through the array and store every value and print it
+        //I wrote the wrong function name foreach, but it should have been forEach
+        {
+            if(value === 'wash dishes')
+            {
+                return; //does the same thing as 'continue', it will skip it and go to the next line and skip the lines
+            }
+            console.log(index);
+            console.log(value);
+        });
+        //to use break, it is better to use a for loop instead
+
+        
+
+
+
+
     </script>
 </body>
 </html>

@@ -30,6 +30,8 @@ function add_todo1()
     inputElement.value = '';
 }
 
+
+
 function add_todo2()
 {
     const inputElement = document.querySelector('.add_2_box');
@@ -45,43 +47,25 @@ function add_todo2()
 
     //to render the array
     //save the data to generate the html
-    for (let i=0; i<todoList2.length; i++)
+    // for (let i=0; i<todoList2.length; i++)
+    // {
+    //    const todo = todoList2[i];
+    //    const html = `<p>${todoList2[i]}</p>`;
+    //    todoListHtml +=html;
+    // }
+
+
+    //forEach loop to go through the function
+    todoList2.forEach(function(todoObject, index)
     {
-       const todo = todoList2[i];
-       const html = `<p>${todoList2[i]}</p>`;
-       todoListHtml +=html;
-    }
+            const html = `<p>${todoList2[index]}</p>`;
+            todoListHtml +=html;
+    });
 
      document.querySelector('.js-todo-list')
         .innerHTML = todoListHtml;
 }
      
-
-function add_todo3()
-{
-    const inputElement = document.querySelector('.add_3_box');
-    const name = inputElement.value;
-    //to push the value at the last of the array
-    todoList3.push(name);
-
-
-    //to reset the textbox each time after we an element
-    inputElement.value = '';
-    let todoListHtml = '';
-
-    //to render the array
-    //save the data to generate the html
-    for (let i=0; i<todoList3.length; i++)
-    {
-       const todo = todoList3[i];
-       const html = `<p>${todoList3[i]}
-       <button class="delete_todo" onclick="delete_todo(${i});">Delete</button></p>`;
-       todoListHtml +=html;
-    }
-
-     document.querySelector('.js-add-delete-todo')
-        .innerHTML = todoListHtml;
-}
 
 function add_todo3()
 {
@@ -103,22 +87,10 @@ function add_todo3()
 
     //to reset the textbox each time after we an element
     inputElement.value = '';
-    let todoListHtml = '';
-
-    //to render the array
-    //save the data to generate the html
-    for (let i=0; i<todoList3.length; i++)
-    {
-       const todo = todoList3[i];
-       const html = `<div>${todoList3[i].name}</div>
-       <div>${todoList3[i].date}</div>
-       <button class="delete_todo" onclick="delete_todo(${i});">Delete</button>`;
-       todoListHtml +=html;
-    }
-
-     document.querySelector('.js-add-delete-todo')
-        .innerHTML = todoListHtml;
+    renderTodoList();
 }
+
+
 
 function delete_todo(index) {
     todoList3.splice(index, 1);// here 1 is a delete count, not index
@@ -133,18 +105,41 @@ function renderTodoList()
     
     //to render the array
     //save the data to generate the html
-    for (let i=0; i<todoList3.length; i++)
+    // for (let i=0; i<todoList3.length; i++)
+    // {
+    //    const todo = todoList3[i];
+    //    const html = `
+    //    <div>${todoList3[i].name}</div>
+    //    <div>${todoList3[i].date}</div>
+    //    <button class="delete_todo" onclick="delete_todo(${i});">
+    //         Delete
+    //    </button>`;
+    //    todoListHtml +=html;
+    // }
+
+    todoList3.forEach(function(todoListObject, index)
     {
-       const todo = todoList3[i];
-       const html = `
-       <div>${todoList3[i].name}</div>
-       <div>${todoList3[i].date}</div>
-       <button class="delete_todo" onclick="delete_todo(${i});">
-            Delete
-       </button>`;
-       todoListHtml +=html;
-    }
+        const html = `
+        <div>${todoList3[index].name}</div>
+        <div>${todoList3[index].date}</div>
+        <button class="delete_todo js-delete-todo-btn">
+                Delete
+        </button>`;
+        todoListHtml +=html;
+    });
 
      document.querySelector('.js-add-delete-todo')
         .innerHTML = todoListHtml;
-}
+
+
+        
+    // here if we take the example of index, then we can say if a function has access to a value, it will always have access to the value
+    //value gets packaged together (enclosed) with the function
+    //this is called closure
+    document.querySelectorAll('.js-delete-todo-btn')
+        .forEach((button, index) =>
+            {
+                button.addEventListener('click', () => delete_todo(index))
+            });
+
+} 

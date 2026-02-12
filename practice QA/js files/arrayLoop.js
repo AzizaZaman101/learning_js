@@ -59,6 +59,38 @@ function removeEggs(foods)
 }
 
 
+
+//using filter to filter foods without egg without using loop --> using filter instead
+const removeEgg = (foods) =>
+{
+    return foods.filter(food => food !=='egg');
+};
+
+console.log(removeEgg(egg));
+
+
+
+const remove2Egg = (foods) =>
+{
+    let count = 0;
+    return foods.filter(food => 
+        {
+            if(food ==='egg' && count<2)
+            {
+                count++;
+                return false;
+            }
+            else{
+                return true;
+            }
+        });
+};
+
+console.log(remove2Egg(egg));
+
+
+
+
 //removes the last 2 eggs from the function
 function removeEggs_reverse(foods)
 {

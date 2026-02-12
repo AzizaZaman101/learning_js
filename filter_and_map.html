@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter and Map</title>
+</head>
+<body>
+    
+
+    
+
+    <script>
+
+        //save the value and run the function, like the forEach loop
+        console.log([1, -3, 5].filter((value, index) => 
+        {
+            //the only difference is the inner function returns a value this time
+
+            return false; //all 3 values won't be added to the new array
+
+            //.filter() creates a new array[]
+            //return true => put value in array
+            //return false => won't put value in array
+        }));
+
+
+        console.log([1, -3, 5].filter((value, index) => 
+        {
+
+            return value>=0;//this is the shortcut version of the code written below
+            //this only shows the values greater than 0 in the console
+
+            // if(value>=0)
+            // {
+            //     return true;
+            // }
+            // else
+            // {
+            //     return false;
+            // }
+        }));
+
+
+
+
+        //just the same as filter
+        //map transforms an array into another array
+        console.log([1,1,3,6,4,3].map((value, index) =>
+        {
+            //return 10; //this will return an array where each value is 10
+            return value+10; //it will make each value of the array transform so that every value becomes value+10
+        }));
+
+
+        //very compact version of writing arrow functions
+        console.log([1,1,3,6,4,3].map(value => value+10));
+
+
+
+        //closure --> if a function has access to a value
+        //it will always have access to that value
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

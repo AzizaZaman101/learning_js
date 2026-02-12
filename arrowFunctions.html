@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Functions</title>
+</head>
+<body>
+    
+    <!--every html element has a method addEventListner
+    lets us run some code when we interact with the element
+    the word after on'' is the event-->
+    <button class = "js-btn">Click</button>
+
+    <!--we don't have to include onclick here at all-->
+    <button class="add-btn">Add</button>
+
+    <script>
+
+        const buttonElement = document.querySelector('.js-btn');
+
+        const eventListener = () =>
+        {
+            console.log('click');
+        };
+
+        //it allows us to add multiple eventListeners
+        
+        //in here we type the event and we type a function to define what we wanna do after the event takes place
+        buttonElement.addEventListener('click',eventListener);
+
+
+
+
+        //removeEventListener has two parameters - event, function
+        buttonElement.removeEventListener('click',eventListener);
+
+
+        //this will run at the same time
+        buttonElement.addEventListener('click', () =>
+        {
+            console.log('click2');
+        });
+
+
+        const arrowFunction = (param) =>
+        {
+            console.log(param+1);
+        };
+
+
+        document.querySelector('.add-btn')
+            .addEventListener('click', () => arrowFunction(4));
+            //the thing i was doing wrong was i used the function as it is, but turns out we have to wrap it around another function
+
+            //it returns undefined when .addEventListener('click', arrowFunction(4));
+
+        
+
+        arrowFunction(2);
+
+        const oneLine = () => 2+3;
+        console.log(oneLine());
+
+        
+
+        [
+            'wash dishes',
+            'do laundry',
+            'do coding'
+        ].forEach((value)=>
+        {
+            console.log(value);
+        });
+
+        //use arrow function when you want to shorten the code and make it readable
+        //but use regular function syntax when you are writing main functions to ensure that you can use hoisting, so that it doesn't matter in which we write
+
+        const object1 = {
+            method (){// this is called the shorthand method, don't need to use arrow functions
+
+            }
+        };
+
+
+        
+
+
+
+    </script>
+</body>
+</html>
